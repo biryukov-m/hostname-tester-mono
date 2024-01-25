@@ -1,3 +1,4 @@
+// Put your theme related variables here. Ex: colors, fonts, sizes
 export const COLORS = {
   creamy: '#FFF8E6', // Light creamy color
   accent: '#48b783ad', // Subtle greenish accent
