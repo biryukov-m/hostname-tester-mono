@@ -2742,7 +2742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8":
+"eslint@npm:^8.56.0":
   version: 8.56.0
   resolution: "eslint@npm:8.56.0"
   dependencies:
@@ -5123,8 +5123,9 @@ __metadata:
     "@types/react-dom": "npm:^18"
     "@typescript-eslint/eslint-plugin": "npm:^6.19.1"
     "@typescript-eslint/parser": "npm:^6.19.1"
-    eslint: "npm:^8"
+    eslint: "npm:^8.56.0"
     eslint-config-airbnb: "npm:^19.0.4"
+    eslint-config-airbnb-base: "npm:^15.0.0"
     eslint-config-airbnb-typescript: "npm:^17.1.0"
     eslint-config-next: "npm:14.1.0"
     eslint-config-prettier: "npm:^9.1.0"
