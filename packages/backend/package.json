@@ -1,5 +1,7 @@
 {
   "name": "backend",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "build": "yarn && tsc",
     "watch-tsc": "yarn tsc -w",
