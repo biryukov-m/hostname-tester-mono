@@ -7,7 +7,7 @@
   "scripts": {
     "start": "yarn && lerna run --parallel start",
     "dev": "yarn && lerna run --parallel dev",
-    "lint": "lerna run --parallel lint"
+    "lint:fix": "lerna run --stream lint:fix"
   },
   "devDependencies": {
     "lerna": "^8.0.2"

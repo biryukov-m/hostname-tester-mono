@@ -1,5 +1,5 @@
 import isUrl from 'is-url';
-
+// Put http or another services here
 export class UrlManipulationService {
   prependHttps(url: string): string {
     if (!url.match(/^https?:\/\//)) {
