@@ -2,7 +2,7 @@
   "name": "backend",
   "packageManager": "yarn@4.0.2",
   "scripts": {
-    "build": "tsc",
+    "build": "yarn && tsc",
     "watch-tsc": "yarn tsc -w",
     "deploy": "node dist/server.js",
     "watch-deploy": "nodemon dist/server.js",
