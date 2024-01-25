@@ -2141,11 +2141,20 @@ __metadata:
     "@types/dotenv": "npm:^8.2.0"
     "@types/express": "npm:^4.17.21"
     "@types/node": "npm:^20.11.6"
+    "@typescript-eslint/eslint-plugin": "npm:^6.19.1"
+    "@typescript-eslint/parser": "npm:^6.19.1"
     dotenv: "npm:^16.4.1"
+    eslint: "npm:^8.56.0"
+    eslint-config-airbnb-base: "npm:^15.0.0"
+    eslint-config-airbnb-typescript: "npm:^17.1.0"
+    eslint-config-prettier: "npm:^9.1.0"
+    eslint-plugin-import: "npm:^2.29.1"
+    eslint-plugin-prettier: "npm:^5.1.3"
     express: "npm:^4.18.2"
     nodemon: "npm:^3.0.3"
+    prettier: "npm:^3.2.4"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.3.3"
+    typescript: "npm:^5"
   languageName: unknown
   linkType: soft
 
@@ -8680,7 +8689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:>=3 < 6, typescript@npm:^5, typescript@npm:^5.3.3":
+"typescript@npm:>=3 < 6, typescript@npm:^5":
   version: 5.3.3
   resolution: "typescript@npm:5.3.3"
   bin:
@@ -8690,7 +8699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A>=3 < 6#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A>=3 < 6#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5#optional!builtin<compat/typescript>":
   version: 5.3.3
   resolution: "typescript@patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"
   bin:

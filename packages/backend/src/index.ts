@@ -1,13 +1,12 @@
-import { Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 
-const express = require('express');
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 const app = express();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT ?? 4000;
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Express Server');
