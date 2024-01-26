@@ -22,7 +22,3 @@ export interface IPasswordUpdReqBody {
 export interface IPasswordDelReqBody {
   _id: string;
 }
-
-export interface IAuth {
-  password: string;
-}

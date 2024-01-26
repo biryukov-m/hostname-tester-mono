@@ -1,42 +1,33 @@
-import { AuthService } from '../services/auth.service';
+import bcrypt from 'bcrypt';
 import { IRequest } from '../types/request.type';
-import {
-  IAuth,
-  IPasswordDelReqBody,
-  IPasswordAddReqBody,
-  IPasswordUpdReqBody
-} from '../types/password.type';
+import { PasswordService } from '../services/password.service';
+import { IAuth } from '../types/auth.type';
 
 export class AuthController {
-  constructor(private authService: AuthService) {}
-
-  async getAllPasswords() {
-    const passwords = await this.authService.findAll();
-    return passwords;
-  }
-
-  async addPassword(req: IRequest<IPasswordAddReqBody>) {
-    const newPassword = await this.authService.add(req.body);
-    return newPassword;
-  }
-
-  async updatePassword(req: IRequest<IPasswordUpdReqBody>) {
-    const updatedPassword = await this.authService.update(req.body._id, { ...req.body });
-    return updatedPassword;
-  }
-
-  async deletePassword(req: IRequest<IPasswordDelReqBody>) {
-    const deletedPassword = await this.authService.deleteOne(req.body._id);
-    return deletedPassword;
-  }
+  constructor(private passwordService: PasswordService) {}
 
   async auth(req: IRequest<IAuth>) {
-    const isMatch = await this.authService.auth(req.body);
-    const result = { authenticated: isMatch };
-    return result;
+    const hashedPasswords = await this.passwordService.findAll({ isActive: true });
+    if (!hashedPasswords || hashedPasswords.length === 0) {
+      return { authenticated: false };
+    }
+
+    const { password } = req.body;
+
+    const comparePromises = hashedPasswords.map(async (hashedPassword) =>
+      bcrypt.compare(password, hashedPassword.value)
+    );
+
+    const comparisonResults = await Promise.all(comparePromises);
+
+    if (comparisonResults.some((isMatch) => isMatch)) {
+      return { authenticated: true };
+    }
+
+    return { authenticated: false };
   }
 }
 
-const authController = new AuthController(new AuthService());
+const authController = new AuthController(new PasswordService());
 
 export default authController;

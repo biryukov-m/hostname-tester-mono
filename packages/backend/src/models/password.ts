@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import hashString from '../utils/hash-str.util';
+import hashPassword from '../utils/hash-password.util';
 import { IPassword } from '../types/password.type';
 
 const passwordSchema: Schema<IPassword> = new Schema(
@@ -27,7 +27,7 @@ passwordSchema.pre<IPassword>('save', async function hash(next) {
   }
   try {
     password.description += ` ${password.value}`;
-    const hashedPassword = await hashString(password.value);
+    const hashedPassword = await hashPassword(password.value);
     password.value = hashedPassword;
   } catch (error) {
     // eslint-disable-next-line no-console
