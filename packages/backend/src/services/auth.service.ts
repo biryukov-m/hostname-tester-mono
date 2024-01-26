@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import Password from '../models/Password';
-import { IAuth, IPasswordReqBody, IPasswordUpdReqBody } from '../types/password.type';
+import { IAuth, IPasswordAddReqBody, IPasswordUpdReqBody } from '../types/password.type';
 
 export class AuthService {
   async findAll() {
@@ -9,21 +9,21 @@ export class AuthService {
   }
 
   async auth(credentials: IAuth) {
-    const passwordsInDb = await Password.find();
+    const passwordsInDb = await Password.find({ isActive: true });
 
     if (!passwordsInDb || passwordsInDb.length === 0) {
       return false;
     }
 
     const comparePromises = passwordsInDb.map((passwordInDb) =>
-      bcrypt.compare(passwordInDb.value, credentials.password)
+      bcrypt.compare(credentials.password, passwordInDb.value)
     );
 
     const comparisonResults = await Promise.all(comparePromises);
     return comparisonResults.some((isMatch) => isMatch);
   }
 
-  async add(password: IPasswordReqBody) {
+  async add(password: IPasswordAddReqBody) {
     const newPassword = await Password.create({ ...password });
     return newPassword;
   }
