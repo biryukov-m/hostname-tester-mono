@@ -1,12 +1,16 @@
 import express from 'express';
 import AppRouter from './routes';
 import 'dotenv/config';
+import connectDb from './config/database.config';
 
 const app = express();
 const router = new AppRouter(app);
 
+// Connect to MongoDB
+connectDb();
+// Express configuration
 app.set('port', process.env.PORT || 4000);
-
+// Add routes
 router.init();
 
 const port = app.get('port');
