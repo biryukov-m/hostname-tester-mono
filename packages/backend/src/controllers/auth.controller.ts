@@ -3,7 +3,7 @@ import { IRequest } from '../types/request.type';
 import {
   IAuth,
   IPasswordDelReqBody,
-  IPasswordReqBody,
+  IPasswordAddReqBody,
   IPasswordUpdReqBody
 } from '../types/password.type';
 
@@ -15,7 +15,7 @@ export class AuthController {
     return passwords;
   }
 
-  async addPassword(req: IRequest<IPasswordReqBody>) {
+  async addPassword(req: IRequest<IPasswordAddReqBody>) {
     const newPassword = await this.authService.add(req.body);
     return newPassword;
   }
@@ -32,7 +32,8 @@ export class AuthController {
 
   async auth(req: IRequest<IAuth>) {
     const isMatch = await this.authService.auth(req.body);
-    return isMatch;
+    const result = { authenticated: isMatch };
+    return result;
   }
 }
 
