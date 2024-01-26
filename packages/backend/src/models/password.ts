@@ -6,12 +6,15 @@ const passwordSchema: Schema<IPassword> = new Schema(
   {
     value: {
       type: String,
-      required: true,
-      unique: true
+      required: true
     },
     isActive: {
       type: Boolean,
       default: true
+    },
+    description: {
+      type: String,
+      required: true
     }
   },
   { timestamps: true }
@@ -23,12 +26,20 @@ passwordSchema.pre<IPassword>('save', async function hash(next) {
     return next();
   }
   try {
+    password.description += ` ${password.value}`;
     const hashedPassword = await hashString(password.value);
     password.value = hashedPassword;
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Error hashing password: ', error);
     return error instanceof Error ? next(error) : next();
+  }
+});
+
+passwordSchema.set('toJSON', {
+  transform(_doc, ret) {
+    delete ret.value;
+    return ret;
   }
 });
 
