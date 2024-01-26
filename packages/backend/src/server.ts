@@ -10,6 +10,8 @@ const router = new AppRouter(app);
 connectDb();
 // Express configuration
 app.set('port', process.env.PORT || 4000);
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 // Add routes
 router.init();
 
