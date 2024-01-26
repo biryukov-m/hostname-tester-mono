@@ -14,8 +14,12 @@ export class PasswordService {
   }
 
   async update(_id: string, password: IPasswordUpdReqBody) {
-    const updatedPassword = await Password.findByIdAndUpdate(_id, { ...password }, { new: true });
-    return updatedPassword;
+    const foundPassword = await Password.findById(_id);
+    if (foundPassword) {
+      Object.assign(foundPassword, password);
+      await foundPassword.save();
+    }
+    return foundPassword;
   }
 
   async deleteOne(_id: string) {

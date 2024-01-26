@@ -1,15 +1,15 @@
 import bcrypt from 'bcrypt';
-import { IRequest } from '../types/request.type';
+import { IApiResponse, IRequest } from '../types/request.type';
 import { PasswordService } from '../services/password.service';
-import { IAuth } from '../types/auth.type';
+import { IRequestAuth, IResponseAuth } from '../types/auth.type';
 
 export class AuthController {
   constructor(private passwordService: PasswordService) {}
 
-  async auth(req: IRequest<IAuth>) {
+  async auth(req: IRequest<IRequestAuth>): Promise<IApiResponse<IResponseAuth>> {
     const hashedPasswords = await this.passwordService.findAll({ isActive: true });
     if (!hashedPasswords || hashedPasswords.length === 0) {
-      return { authenticated: false };
+      throw new Error('unauthenticated');
     }
 
     const { password } = req.body;
@@ -21,10 +21,10 @@ export class AuthController {
     const comparisonResults = await Promise.all(comparePromises);
 
     if (comparisonResults.some((isMatch) => isMatch)) {
-      return { authenticated: true };
+      return { status: 200, data: { authenticated: true } };
     }
 
-    return { authenticated: false };
+    throw new Error('unauthenticated');
   }
 }
 
