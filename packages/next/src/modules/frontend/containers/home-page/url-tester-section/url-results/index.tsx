@@ -5,8 +5,8 @@ import { GridColDef, GridToolbar, ukUA } from '@mui/x-data-grid';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { format } from 'date-fns';
 import { LinearProgress } from '@mui/material';
-import { IResult } from '@/types/types';
-import { STATUSES } from '@/config/statuses.const';
+import { IResult } from '@/modules/frontend/types/types';
+import { STATUSES } from '@/modules/frontend/config/statuses.const';
 import * as Styled from './styled';
 
 interface IProps {

@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { Box, Button } from '@mui/material';
-import { hostService } from '@/services/HostService';
-import { urlManipulationService } from '@/services/UrlManipulationService';
-import { IResult } from '@/types/types';
+import { hostService } from '@/modules/frontend/services/HostService';
+import { urlManipulationService } from '@/modules/frontend/services/UrlManipulationService';
+import { IResult } from '@/modules/frontend/types/types';
 import * as Styled from './styled';
 
 interface IProps {

@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { Box } from '@mui/material';
-import { IResult } from '@/types/types';
-import { CircularProgressWithLabel } from '@/components/CircularProgressWithLabel';
-import { CustomizedSnackbars } from '@/components/CustomizedSnackbars';
+import { IResult } from '@/modules/frontend/types/types';
+import { CircularProgressWithLabel } from '@/modules/frontend/components/CircularProgressWithLabel';
+import { CustomizedSnackbars } from '@/modules/frontend/components/CustomizedSnackbars';
 import { UrlInput } from './url-input';
 import { UrlResults } from './url-results';
 
