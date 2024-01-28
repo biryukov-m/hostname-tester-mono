@@ -1,4 +1,4 @@
-import { STATUSES } from '@/modules/frontend/config/statuses.const';
+import { STATUSES } from '@/modules/hostname-tester/config/statuses.const';
 import { UrlManipulationService } from './UrlManipulationService';
 
 class HostService {

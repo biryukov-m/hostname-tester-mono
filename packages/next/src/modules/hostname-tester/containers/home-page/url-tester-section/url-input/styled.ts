@@ -1,4 +1,4 @@
-import { COLORS } from '@/modules/frontend/theme/colors.const';
+import { COLORS } from '@/modules/hostname-tester/theme/colors.const';
 import styled from '@emotion/styled';
 import { TextareaAutosize } from '@mui/material';
 
