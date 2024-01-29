@@ -7,24 +7,9 @@ import {
 } from '@/modules/backend/types/password.type';
 import { TRequest, TResponse } from '@/modules/backend/types/request.type';
 import { FilterQuery } from 'mongoose';
-import { NextResponse } from 'next/server';
+import { handleRequest } from '../request-handler';
 
 const passwordService = new PasswordService();
-
-async function handleRequest<T>(
-  action: () => Promise<T>,
-  successMessage?: string
-): Promise<TResponse<T>> {
-  let resBody;
-  try {
-    const data = await action();
-    resBody = { data, message: successMessage };
-  } catch (error) {
-    resBody =
-      error instanceof Error ? { error: error.message } : { error: 'Internal server error' };
-  }
-  return NextResponse.json(resBody);
-}
 
 export async function GET(): Promise<TResponse<IPassword[]>> {
   // TODO: Add filter from query
