@@ -2,7 +2,7 @@ import { TRequest, TResponse } from '@/modules/backend/types/request.type';
 import { IRequestAuth, IResponseAuth } from '@/modules/backend/types/auth.type';
 import { PasswordService } from '@/modules/backend/services/password.service';
 import bcrypt from 'bcrypt';
-import { handleRequest } from '../request-handler';
+import { handleRequest } from '../../request-handler';
 
 const passwordService = new PasswordService();
 
