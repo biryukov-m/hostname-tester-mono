@@ -9,6 +9,7 @@
     "lint:fix": "npx eslint 'src/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^3.5.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
