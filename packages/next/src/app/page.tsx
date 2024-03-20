@@ -10,8 +10,6 @@ export default function Home() {
     <div className="App">
       <Container>
         <h1>Check Websites</h1>
-        <a href="/api/auth/login">Login</a>
-        <a href="/api/auth/logout">Logout</a>
         <UrlTesterSection />
       </Container>
     </div>
