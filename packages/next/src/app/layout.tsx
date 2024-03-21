@@ -1,7 +1,7 @@
+import { Header } from '@/modules/hostname-tester/containers/layout/header';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Header } from '@/modules/hostname-tester/containers/layout/header';
 
 const inter = Inter({ subsets: ['latin'] });
 

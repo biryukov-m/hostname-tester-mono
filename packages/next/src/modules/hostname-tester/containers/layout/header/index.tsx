@@ -1,13 +1,31 @@
 'use client';
 
+import { Button, CircularProgress } from '@mui/material';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { Button } from '@mui/material';
 import * as Styled from './styled';
 
 export const Header = () => {
-  const { user, error, isLoading } = useUser();
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
+  const { user, isLoading, error } = useUser();
+
+  if (isLoading) {
+    return (
+      <div>
+        <Styled.Wrapper>
+          <CircularProgress />
+        </Styled.Wrapper>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <Styled.Wrapper>
+          <span>Сталася помилка</span>
+        </Styled.Wrapper>
+      </div>
+    );
+  }
 
   return (
     <div>
