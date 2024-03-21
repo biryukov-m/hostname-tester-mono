@@ -24,7 +24,7 @@ class HostService {
 
   async checkHost(hostname: string) {
     const url = this.urlManipulationService.prependHttps(hostname);
-    const timeoutMillis = 1000;
+    const timeoutMillis = 2000;
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), timeoutMillis);
     try {

@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: row-reverse;
   padding: 8px;
   border-bottom: 1px solid #000;
+  margin-bottom: 16px;
 `;
 
 export const UserContainer = styled.div`
