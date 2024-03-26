@@ -5,6 +5,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { UrlTesterSection } from '@/modules/hostname-tester/containers/home-page/url-tester-section';
 import { getSession, withPageAuthRequired } from '@auth0/nextjs-auth0';
+import Head from 'next/head';
 
 export default withPageAuthRequired(
   async () => {
@@ -14,6 +15,9 @@ export default withPageAuthRequired(
 
     return (
       <div className="App">
+        <Head>
+          <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        </Head>
         <Container>
           {userRoles && userRoles[0] === 'Hostname check' ? (
             <UrlTesterSection />
